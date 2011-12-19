@@ -70,7 +70,7 @@ public class CListActivity extends ListView {
 			map.put("description", "description 3");
 			listItem.add(map);
 			
-			SimpleAdapter mSchedule = new SimpleAdapter(this.getContext(), listItem, R.layout.list_row, new String[] {"titre", "description"}, new int[] {R.id.titre, R.id.description});
+			SimpleAdapter mSchedule = new SimpleAdapter(this.getContext(), listItem, R.layout.actualites_list_row, new String[] {"titre", "description"}, new int[] {R.id.titre, R.id.description});
 
 			
 //		//data display edit mode
@@ -87,7 +87,7 @@ public class CListActivity extends ListView {
 	}
 	
 	public void setAdapterTest(ArrayList<HashMap<String, String>> listItem) {
-		SimpleAdapter mSchedule = new SimpleAdapter(this.getContext(), listItem, R.layout.list_row, new String[] {"titre", "description"}, new int[] {R.id.titre, R.id.description});
+		SimpleAdapter mSchedule = new SimpleAdapter(this.getContext(), listItem, R.layout.actualites_list_row, new String[] {"titre", "description"}, new int[] {R.id.titre, R.id.description});
 		super.setAdapter(mSchedule);
 		this.listItem = listItem;
 	}

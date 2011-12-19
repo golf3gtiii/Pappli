@@ -3,12 +3,12 @@
       package="com.papli"
       android:versionCode="1"
       android:versionName="1.0">
-    <uses-sdk android:minSdkVersion="7" />
+    <uses-sdk android:minSdkVersion="8" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application android:icon="@drawable/entendre_icon" android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+    <application android:icon="@drawable/entendre_icon" android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
     	
-    	<activity android:name=".Loader"
+    	<activity android:name=".LoaderActivity"
     				
                   android:label="@string/app_name">
             <intent-filter>
@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
     	
-    	<activity android:name=".Sommaire"
+    	<activity android:name=".SommaireActivity"
     				
                   android:label="@string/app_name">
             <intent-filter>
@@ -26,21 +26,13 @@
             </intent-filter>
         </activity>
     	
-    	<activity android:name=".TabBottom"
-    				
-                  android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.TAB" />
-            </intent-filter>
-        </activity>
     	
-    	<activity android:name=".PAppliActivity"
+    	<activity android:name=".ActualitesActivity"
     				
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.VIEW" />
             </intent-filter>
         </activity>
         
@@ -49,6 +41,38 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+		<activity android:name=".CentresSommaireActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.CENTRESSOMMAIRE" />
+            </intent-filter>
+        </activity>
+	
+        <activity android:name=".CentresVilleActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.CENTRES" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".FichesSommaireActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.FICHES" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".TabWidget"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.TAB" />
             </intent-filter>
         </activity>
     </application>
