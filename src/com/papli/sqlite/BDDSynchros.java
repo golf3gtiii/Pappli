@@ -71,9 +71,17 @@ public class BDDSynchros {
 		return bdd.delete(TABLE_SYNCHROS, COL_ID + " = " +id, null);
 	}
  
+	public Cursor getLastSynchro() {
+		Cursor c = bdd.query(TABLE_SYNCHROS, null, null, null, null, null, null);
+//		
+//		c.moveToFirst();
+		return c;
+//		return c.getString(c.getColumnIndex(COL_DATE));
+	}
+	
 	public Synchro getSynchroWithDate(String date){
 		//Récupère dans un Cursor les valeur correspondant à un livre contenu dans la BDD (ici on sélectionne le livre grâce à son titre)
-		Cursor c = bdd.query(TABLE_SYNCHROS, new String[] {COL_ID, COL_DATE, COL_URL}, COL_ID + " LIKE \"" + date +"\"", null, null, null, null);
+		Cursor c = bdd.query(TABLE_SYNCHROS, new String[] {COL_ID, COL_DATE, COL_URL}, COL_DATE + " LIKE \"" + date +"\"", null, null, null, null);
 		return cursorToSynchro(c);
 	}
 	

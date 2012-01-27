@@ -1,7 +1,11 @@
 package com.papli.sqlite;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,6 +13,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.helpers.Fonctions;
+import com.papli.R;
 
 public class BDDActus {
 	private static final int VERSION_BDD = 1;
@@ -90,6 +95,11 @@ public class BDDActus {
 		return bdd.delete(TABLE_ACTUS, COL_ID + " = " +id, null);
 	}
  
+	public Cursor getActusImage() {
+		Cursor c = bdd.query(TABLE_ACTUS, new String[] {COL_IMAGE, COL_IMAGEMIN}, null, null, null, null, null);
+		return c;
+	}
+	
 	public ArrayList<HashMap<String, String>> getActus() {
 		ArrayList<HashMap<String, String>> listItem = new ArrayList<HashMap<String, String>>();
 		Cursor actus = bdd.query(TABLE_ACTUS, new String[] {COL_ID, COL_DATE, COL_TITRE, COL_MESSAGE, COL_IMAGE, COL_IMAGEMIN}, null, null, null, null, null);
@@ -101,9 +111,25 @@ public class BDDActus {
 			HashMap<String, String> map;
 			map = new HashMap<String, String>();
 			map.put("titre", actus.getString(actus.getColumnIndex("titre")));
+
+			Timestamp timeStamp = new Timestamp((long) (actus.getLong(actus.getColumnIndex("date"))*1000)  );
+			Date      date      = new Date(timeStamp.getTime());
+//			SimpleDateFormat formatter = new SimpleDateFormat("dd/MMMM/YYYY ˆ HH:mm:ss");
+			String formatter = (new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE)).format(date);
+			map.put("date", ""+formatter);
+//			map.put("date", actus.getString(actus.getColumnIndex("date")));
+			
 			map.put("description", fonction.premiers_mots(5,actus.getString(actus.getColumnIndex("message"))));
 			map.put("descriptionlong", actus.getString(actus.getColumnIndex("message")));
-			map.put("image", actus.getString(actus.getColumnIndex("image")));
+			map.put("image", "/data/data/com.papli/images/"+actus.getString(actus.getColumnIndex("image")));
+			
+			String Image = actus.getString(actus.getColumnIndex("image"));
+			if (Image.contentEquals("")) {
+				map.put("image_min", String.valueOf(R.drawable.centerpin));
+			}
+			else {
+				map.put("image_min", "/data/data/com.papli/images/"+Image);
+			}
 			listItem.add(map);
 			
 			actus.moveToNext();

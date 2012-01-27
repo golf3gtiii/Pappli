@@ -87,7 +87,7 @@ public class CListActivity extends ListView {
 	}
 	
 	public void setAdapterTest(ArrayList<HashMap<String, String>> listItem) {
-		SimpleAdapter mSchedule = new SimpleAdapter(this.getContext(), listItem, R.layout.actualites_list_row, new String[] {"titre", "description"}, new int[] {R.id.titre, R.id.description});
+		SimpleAdapter mSchedule = new SimpleAdapter(this.getContext(), listItem, R.layout.actualites_list_row, new String[] {"titre", "date", "description", "image_min"}, new int[] {R.id.titre, R.id.date, R.id.description, R.id.img});
 		super.setAdapter(mSchedule);
 		this.listItem = listItem;
 	}

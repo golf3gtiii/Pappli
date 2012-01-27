@@ -2,18 +2,51 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.papli"
       android:versionCode="1"
-      android:versionName="1.0">
+      android:versionName="1.0"
+      >
     <uses-sdk android:minSdkVersion="8" />
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <application android:icon="@drawable/entendre_icon" android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-    	
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.LOCATION" />
+    
+    <application android:icon="@drawable/entendre_icon" android:label="@string/app_name" 
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+    	<uses-library android:name="com.google.android.maps" />
     	<activity android:name=".LoaderActivity"
-    				
+    			android:screenOrientation="portrait"	
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    	
+    	
+    	<activity android:name=".TabActuActivity"
+    				
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="TAB" />
+            </intent-filter>
+        </activity>
+        
+    	<activity android:name=".TabCentresActivity"
+    				
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="TAB" />
+            </intent-filter>
+        </activity>
+    	
+    	<activity android:name=".TabNouveautesActivity"
+    				
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="TAB" />
             </intent-filter>
         </activity>
     	
@@ -45,6 +78,7 @@
         </activity>
         
 		<activity android:name=".CentresSommaireActivity"
+		     	android:windowSoftInputMode="stateVisible|adjustPan"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -53,6 +87,26 @@
         </activity>
 	
         <activity android:name=".CentresVilleActivity"
+                  android:label="@string/app_name"
+                  android:windowSoftInputMode="stateHidden"
+                  >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.CENTRES" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".CentresDepartementActivity"
+                  android:label="@string/app_name"
+                  android:windowSoftInputMode="stateVisible|adjustPan"
+                  >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.CENTRES" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".CentresMapActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -68,6 +122,32 @@
             </intent-filter>
         </activity>
         
+        <activity android:name=".NouveautesSommaireActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.NOUVEAUTES" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".NouveautesAideActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.NOUVEAUTES" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".NouveautesAccessoiresActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.NOUVEAUTES" />
+            </intent-filter>
+        </activity>
+        
+        
+        
         <activity android:name=".TabWidget"
                   android:label="@string/app_name">
             <intent-filter>
@@ -75,5 +155,8 @@
                 <category android:name="android.intent.category.TAB" />
             </intent-filter>
         </activity>
+        
+        
+        
     </application>
 </manifest>

@@ -50,6 +50,14 @@
 	            android:src="@drawable/sommaire_centres" />
 	        
 	        <ImageView
+	            android:id="@+id/imageFiches"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:paddingLeft="30dp"
+	            android:paddingTop="25dp"
+	            android:src="@drawable/sommaire_fiches" />
+	        
+	        <ImageView
 	            android:id="@+id/imageNouveautes"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
@@ -57,13 +65,7 @@
 	            android:paddingTop="25dp"
 	            android:src="@drawable/sommaire_nouveautes" />
 	
-	        <ImageView
-	            android:id="@+id/imageFiches"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:paddingLeft="30dp"
-	            android:paddingTop="25dp"
-	            android:src="@drawable/sommaire_fiches" />
+	        
 	
 	    </LinearLayout>
 
